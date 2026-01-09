@@ -1,4 +1,17 @@
+use ferris_says::say;         // Import the say function
+use std::io::{stdout, BufWriter};
+
 fn main() {
+
+
+    let stdout = stdout();
+    let message = String::from("Hello, fellow Rustaceans!");
+    let width = message.chars().count();
+    // Use a buffered writer for efficiency
+    let mut writer = BufWriter::new(stdout.lock());
+    // Print the message with the crab mascot
+    say(&message, width, &mut writer).unwrap();
+
     let x: i32 = 42;
     let y: i32 = 2;
     let op: i32 = 0;
